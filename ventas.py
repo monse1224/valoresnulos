@@ -15,4 +15,31 @@ df['salon_ventas'] = df['salon_ventas'].fillna(round(df['salon_ventas'].mean(),1
 #quitar nulos de tarjeta de débito con media
 df['tarjetas_debito'] = df['tarjetas_debito'].fillna(round(df['tarjetas_debito'].median(),1))
 valores_nulos=df.isnull().sum()
+#print(valores_nulos)
+
+#quitar nulos de tarjetas_credito
+df['tarjetas_credito'] = df['tarjetas_credito'].fillna(round(df['tarjetas_credito'].median(),1))
+#valores_nulos=df.isnull().sum()
+#print(valores_nulos)
+
+print(df['otros_medios'].describe())
+df['otros_medios']=df['otros_medios'].fillna(6922148.759)
+#valores_nulos=df.isnull().sum()
+#print(valores_nulos)
+
+df['subtotal_ventas_alimentos_bebidas'] =df['subtotal_ventas_alimentos_bebidas'].fillna(method='ffill')
+#valores_nulos=df.isnull().sum()
+#print(valores_nulos)
+
+#método de bfill
+df['almacen'] =df['almacen'].fillna(method='bfill')
+#valores_nulos=df.isnull().sum()
+#print(valores_nulos)
+
+#rellena con ceros la columna panadería
+df['panaderia'] =df['panaderia'].fillna(0)
+valores_nulos=df.isnull().sum()
 print(valores_nulos)
+
+#Convertir DataFrame a CSV
+df.to_csv('ventas_totales_limpio.csv')
