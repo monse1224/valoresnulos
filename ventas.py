@@ -38,8 +38,42 @@ df['almacen'] =df['almacen'].fillna(method='bfill')
 
 #rellena con ceros la columna panadería
 df['panaderia'] =df['panaderia'].fillna(0)
+#valores_nulos=df.isnull().sum()
+#print(valores_nulos)
+
+df['bebidas'] =df['bebidas'].fillna(round(df['bebidas'].median(),1))
+#valores_nulos=df.isnull().sum()
+#print(valores_nulos)
+
+df['lacteos'] =df['lacteos'].fillna(0)
+#valores_nulos=df.isnull().sum()
+#print(valores_nulos)
+
+df['carnes'] =df['carnes'].fillna(round(df['carnes'].median(),1))
+#valores_nulos=df.isnull().sum()
+#print(valores_nulos)
+
+df['verduleria_fruteria'] =df['verduleria_fruteria'].fillna(method='bfill')
+#valores_nulos=df.isnull().sum()
+#print(valores_nulos)
+
+df['alimentos_preparados_rotiseria'] =df['alimentos_preparados_rotiseria'].fillna(method='ffill')
+#valores_nulos=df.isnull().sum()
+#print(valores_nulos)
+
+
+df['indumentaria_calzado_textiles_hogar'] =df['indumentaria_calzado_textiles_hogar'].fillna(round(df['indumentaria_calzado_textiles_hogar'].mean(),1))
+#valores_nulos=df.isnull().sum()
+#print(valores_nulos)
+
+df['electronicos_articulos_hogar'] =df['electronicos_articulos_hogar'].fillna(round(df['electronicos_articulos_hogar'].median(),1))
+#valores_nulos=df.isnull().sum()
+#print(valores_nulos)
+
+df['otros'] =df['otros'].fillna(round(df['otros'].mean(),1))
 valores_nulos=df.isnull().sum()
 print(valores_nulos)
 
 #Convertir DataFrame a CSV
 df.to_csv('ventas_totales_limpio.csv')
+
