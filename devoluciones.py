@@ -11,3 +11,6 @@ df['FECHA_CANCELA'].fillna('00/00/0000  00:00:00 x. x.', inplace=True)
 #rellenamos con el formato o composición de datos que contiene la columna, para identificarlo como inexistente
 df['DOC_ANT'].fillna('X00000', inplace=True) 
 print(df.isnull().sum())
+
+#Convertir DataFrame a CSV
+df.to_csv('devoluciones.csv')
