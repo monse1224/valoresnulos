@@ -15,3 +15,6 @@ df['CVE_PEDI'].fillna('--', inplace=True)
 #ingresamos el formato de una fecha inexistente para indicar fecha invalida.
 df['FECHA_CANCELA'].fillna('00/00/0000  00:00:00 x. x.', inplace=True) 
 print(df.isnull().sum())
+
+#Convertir DataFrame a CSV
+df.to_csv('notas_credito_limpio.csv')
